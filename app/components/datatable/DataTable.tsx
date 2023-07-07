@@ -17,7 +17,6 @@ const DataTable = (props: any) => {
   const [limit, setLimit] = useState<number>(10);
   const [skip, setSkip] = useState<number>();
   const [pageCount, setPageCount] = useState<number>(1);
-  const [numberPages, setNumberPages] = useState<number>();
   const [result, setResult] = useState<Result>();
 
   // Invoke when user click to request another page.
@@ -31,7 +30,6 @@ const DataTable = (props: any) => {
         setResult(datas)
         setProductItems(datas.products);
         setPageCount(Math.ceil(datas.total / datas.limit))
-        setNumberPages(datas.total/limit)
         setLimit(datas.limit)
         setSkip(datas.skip)
         setProductItemsTotal(datas.total)
@@ -46,7 +44,6 @@ const DataTable = (props: any) => {
         setResult(datas)
         setProductItems(datas.products);
         setPageCount(Math.ceil(datas.total / datas.limit))
-        setNumberPages(datas.total/limit)
         setLimit(datas.limit)
         setSkip(datas.skip)
         setProductItemsTotal(datas.total)
@@ -57,15 +54,12 @@ const DataTable = (props: any) => {
   const getDatas = (page: number, datas: Result)=>{
     Produts.getProducts(limit, (limit * page))
       .then((datas) => {
-        setPageCount(page+1)
         setProductItems(datas.products);
         setLimit(datas.limit)
         setSkip(datas.skip)
         setProductItemsTotal(datas.total)
       })
-      .catch((err) => {
-        
-      });
+      .catch((err) => {});
   }
   
 
@@ -119,7 +113,7 @@ const DataTable = (props: any) => {
               <Flex>
                 <Box p='4'>
                   <Text>
-                    Affichant {pageCount} sur {numberPages} pages de {productsTotal} resultats
+                    Affichant {limit} produits sur {pageCount} pages de {productsTotal} resultats
                   </Text>
                 </Box>
                 <Spacer />
