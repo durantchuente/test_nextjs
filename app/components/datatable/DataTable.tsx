@@ -82,7 +82,7 @@ const DataTable = (props: any) => {
           <Input
             pl='3.5rem'
             type='search'
-            placeholder='Search' 
+            placeholder='Recherche' 
             onChange={e => search(e.target.value)} />
           <InputLeftElement width='4.5rem'>
             <Search2Icon aria-label="search" />
@@ -119,18 +119,18 @@ const DataTable = (props: any) => {
               <Flex>
                 <Box p='4'>
                   <Text>
-                    Showing {pageCount} to {numberPages} of {productsTotal} results
+                    Affichant {pageCount} sur {numberPages} pages de {productsTotal} resultats
                   </Text>
                 </Box>
                 <Spacer />
                 <Box p='4'>
                   <ReactPaginate
                     breakLabel="..."
-                    nextLabel="next >"
+                    nextLabel="suivant >"
                     onPageChange={handlePageClick}
                     pageRangeDisplayed={5}
                     pageCount={pageCount}
-                    previousLabel="< previous"
+                    previousLabel="< précédent"
                     pageClassName="page-item"
                     pageLinkClassName="page-link"
                     previousClassName="page-item"

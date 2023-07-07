@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <ChakraProvider>
         <Container maxW='7xl' className="tab" >
-          <Box  >
+          <Box p='10'>
             <DataTable />
           </Box>
         </Container>
